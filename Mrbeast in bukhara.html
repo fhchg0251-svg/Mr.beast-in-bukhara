@@ -1,0 +1,934 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090d">
+<meta name="description" content="A fan-made welcome to Bukhara, Uzbekistan, for MrBeast.">
+<title>MRBEAST × BUKHARA 🇺🇿</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #08090d;
+  --panel: #11141c;
+  --blue: #32aaff;
+  --cyan: #36f0ed;
+  --white: #f7f9ff;
+  --muted: #9ca6b8;
+  --border: rgba(255,255,255,.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 10%, #123a6325, transparent 45%),
+    radial-gradient(ellipse at 90% 45%, #075d6520, transparent 40%);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+img { display: block; width: 100%; object-fit: cover; }
+
+::selection { background: var(--cyan); color: #050609; }
+
+.container {
+  width: min(1160px, 90%);
+  margin: auto;
+}
+
+nav {
+  height: 78px;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  background: rgba(8,9,13,.8);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 19px;
+  letter-spacing: -1px;
+}
+
+.logo span { color: var(--cyan); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  color: #c5cad4;
+  font-size: 13px;
+}
+
+.nav-links a:hover { color: var(--cyan); }
+
+.menu-btn {
+  display: none;
+  color: white;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 9px 12px;
+}
+
+.hero {
+  min-height: 780px;
+  min-height: 100svh;
+  padding: 140px 0 85px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(8,9,13,.97), rgba(8,9,13,.67) 55%, rgba(8,9,13,.18)),
+    linear-gradient(0deg, var(--bg), transparent 40%),
+    url("https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=2000&q=85") center/cover;
+  animation: heroZoom 18s ease-in-out infinite alternate;
+}
+
+.hero-content { max-width: 850px; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 15px var(--cyan);
+  animation: pulse 1.7s infinite;
+}
+
+h1 {
+  font-size: clamp(54px, 10vw, 112px);
+  font-weight: 900;
+  line-height: .91;
+  letter-spacing: -7px;
+}
+
+h1 .blue {
+  display: block;
+  color: var(--cyan);
+  text-shadow: 0 0 55px #36f0ed20;
+}
+
+.hero p {
+  max-width: 530px;
+  color: #c2c9d5;
+  line-height: 1.9;
+  font-size: 15px;
+  margin: 28px 0 32px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.btn {
+  min-height: 52px;
+  padding: 0 23px;
+  border-radius: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .7px;
+  border: 1px solid transparent;
+  transition: .25s;
+}
+
+.btn-primary {
+  color: #071013;
+  background: var(--cyan);
+  box-shadow: 0 0 25px #36f0ed20;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px #36f0ed50;
+}
+
+.btn-outline {
+  border-color: #ffffff35;
+  background: #ffffff08;
+}
+
+.btn-outline:hover {
+  background: #ffffff15;
+  border-color: var(--cyan);
+}
+
+.hero-bottom {
+  margin-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.stat { border-left: 2px solid var(--cyan); padding-left: 14px; }
+.stat strong { display: block; font-size: 17px; }
+.stat span { display: block; font-size: 10px; color: var(--muted); margin-top: 5px; }
+
+section { padding: 110px 0; }
+
+.section-head { max-width: 650px; margin-bottom: 44px; }
+
+.kicker {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--cyan);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: clamp(33px, 5vw, 55px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+  font-weight: 900;
+}
+
+.section-head p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-top: 17px;
+  font-size: 14px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(145deg, #171b26, #0c0e14);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform .35s, border-color .35s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #36f0ed75;
+}
+
+.card-img {
+  height: 225px;
+  overflow: hidden;
+  background: #141c29;
+}
+
+.card-img img {
+  height: 100%;
+  transition: transform .6s;
+}
+
+.card:hover img { transform: scale(1.07); }
+
+.card-body { padding: 25px; }
+.card-num { color: var(--cyan); font-size: 11px; font-weight: 800; }
+.card h3 { font-size: 20px; margin: 14px 0 10px; }
+.card p { color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+.message {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse at 90% 50%, #007a8430, transparent 45%),
+    #0c1018;
+}
+
+.message-box {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.quote-mark {
+  font-size: 70px;
+  color: var(--cyan);
+  line-height: 1;
+  font-weight: 900;
+}
+
+.message h2 { margin: 20px 0 24px; }
+.message p {
+  color: #c3cad6;
+  font-size: 16px;
+  line-height: 2;
+  max-width: 700px;
+  margin: auto;
+}
+
+.signature {
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-top: 28px;
+}
+
+.welcome-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.welcome-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #ffffff04;
+  padding: 27px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: .25s;
+}
+
+.welcome-item:hover {
+  background: #36f0ed08;
+  border-color: #36f0ed60;
+}
+
+.welcome-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  background: #36f0ed12;
+}
+
+.welcome-item h3 { font-size: 15px; margin-bottom: 9px; }
+.welcome-item p { color: var(--muted); font-size: 12px; line-height: 1.8; }
+
+.interactive {
+  text-align: center;
+  border: 1px solid #36f0ed35;
+  border-radius: 20px;
+  padding: 65px 25px;
+  background:
+    radial-gradient(ellipse at center, #36f0ed12, transparent 65%),
+    #0e1118;
+}
+
+.interactive p {
+  max-width: 550px;
+  margin: 20px auto 27px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.counter {
+  margin-top: 20px;
+  color: #818b9d;
+  font-size: 12px;
+}
+
+.counter strong { color: var(--cyan); }
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 14px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #141923;
+}
+
+.gallery-item:first-child { grid-row: span 2; }
+
+.gallery-item img {
+  height: 100%;
+  transition: transform .5s;
+}
+
+.gallery-item:hover img { transform: scale(1.08); }
+
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(transparent, #000b);
+  pointer-events: none;
+}
+
+.gallery-item span {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.final-cta {
+  padding: 80px 25px;
+  border-radius: 18px;
+  text-align: center;
+  background: linear-gradient(135deg, #102d3c, #10121b 60%, #133e3f);
+  border: 1px solid var(--border);
+}
+
+.final-cta h2 { margin-bottom: 18px; }
+.final-cta p {
+  color: #b3bfcc;
+  font-size: 14px;
+  margin-bottom: 28px;
+  line-height: 1.8;
+}
+
+footer {
+  padding: 35px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+footer p { color: var(--muted); font-size: 11px; line-height: 1.8; }
+.footer-links { display: flex; gap: 18px; font-size: 12px; }
+.footer-links a:hover { color: var(--cyan); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s, transform .7s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 200;
+  transform: translate(-50%, 30px);
+  opacity: 0;
+  background: #171d26;
+  border: 1px solid #36f0ed70;
+  padding: 16px 24px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 10px 50px #0008;
+  transition: .3s;
+  width: max-content;
+  max-width: 90%;
+  pointer-events: none;
+}
+
+#toast.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+.particle {
+  position: fixed;
+  z-index: 190;
+  top: -20px;
+  width: 8px;
+  height: 12px;
+  pointer-events: none;
+  animation: fall 2.4s linear forwards;
+}
+
+@keyframes pulse {
+  50% { opacity: .4; box-shadow: 0 0 3px var(--cyan); }
+}
+
+@keyframes heroZoom {
+  from { background-size: 100% auto; }
+  to { background-size: 108% auto; }
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+@media (max-width: 760px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    right: 0;
+    padding: 25px 5%;
+    background: #0b0d13;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .nav-links.open { display: flex; }
+  .menu-btn { display: block; }
+  .hero { min-height: 850px; min-height: 100svh; }
+  h1 { letter-spacing: -3px; }
+  .cards { grid-template-columns: 1fr; }
+  .card-img { height: 240px; }
+  .welcome-grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 180px); }
+  .gallery-item:first-child { grid-row: auto; }
+  section { padding: 75px 0; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .hero-bottom { gap: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">MRBEAST <span>× BUKHARA</span></a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#about">ABOUT BUKHARA</a>
+      <a href="#message">OUR MESSAGE</a>
+      <a href="#welcome">THE WELCOME</a>
+      <a href="#gallery">GALLERY</a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn"
+      aria-label="Toggle navigation" aria-expanded="false">☰ MENU</button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-bg"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow"><span class="dot"></span> A MESSAGE FROM UZBEKISTAN</div>
+
+      <h1>
+        HEY,<br>
+        MRBEAST<span class="blue">!</span>
+        <span class="blue">BUKHARA.</span>
+      </h1>
+
+      <p>
+        One of the oldest cities in the world.
+        A thousand years of history.
+        Millions of stories waiting to be discovered.
+        Jimmy, welcome to the heart of Uzbekistan!
+      </p>
+
+      <div class="actions">
+        <a href="#message" class="btn btn-primary">DISCOVER OUR MESSAGE ↗</a>
+        <a href="#about" class="btn btn-outline">EXPLORE BUKHARA ↓</a>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="stat">
+          <strong>2500+ YEARS</strong>
+          <span>A CITY FULL OF HISTORY</span>
+        </div>
+        <div class="stat">
+          <strong>UZBEKISTAN 🇺🇿</strong>
+          <span>THE HEART OF CENTRAL ASIA</span>
+        </div>
+        <div class="stat">
+          <strong>ONE BIG WELCOME</strong>
+          <span>FROM THE LOCAL COMMUNITY</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">01 / DISCOVER THE CITY</div>
+      <h2>NOT JUST A CITY.<br>A WHOLE EXPERIENCE.</h2>
+      <p>
+        Welcome to Bukhara — a historic Silk Road city where beautiful
+        architecture, rich traditions and legendary hospitality come together.
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-img">
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=900&q=80"
+            alt="Historic architecture"
+            onerror="this.style.display='none'">
+        </div>
+        <div class="card-body">
+          <span class="card-num">01 — HISTORY</span>
+          <h3>Ancient Architecture</h3>
+          <p>Discover magnificent madrasahs, historic minarets and streets that preserve centuries of history.</p>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-img">
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80"
+            alt="Beautiful old city streets"
+            onerror="this.style.display='none'">
+        </div>
+        <div class="card-body">
+          <span class="card-num">02 — CULTURE</span>
+          <h3>Uzbek Hospitality</h3>
+          <p>Warm smiles, delicious food, fascinating traditions and people who love welcoming guests.</p>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-img">
+          <img loading="lazy"
+            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"
+            alt="A beautiful night sky"
+            onerror="this.style.display='none'">
+        </div>
+        <div class="card-body">
+          <span class="card-num">03 — ADVENTURE</span>
+          <h3>Unforgettable Moments</h3>
+          <p>Every corner has a story. Every local has a smile. Every visit can become a lifelong memory.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="message" id="message">
+  <div class="container">
+    <div class="message-box reveal">
+      <div class="quote-mark">“</div>
+      <div class="kicker">02 / A MESSAGE FOR JIMMY</div>
+      <h2>DEAR MRBEAST,<br>YOU'RE WELCOME HERE.</h2>
+      <p>
+        Jimmy, if you're reading this — welcome to Uzbekistan!
+        Bukhara is a city with thousands of stories, incredible places
+        and people ready to share their culture with the world.
+        We hope you get to experience our traditions, try our food
+        and meet the amazing people who call this place home.
+        <br><br>
+        The world knows you for making people smile.
+        Now we'd love to show you a little of our world.
+      </p>
+      <div class="signature">WITH LOVE FROM BUKHARA, UZBEKISTAN 🇺🇿</div>
+    </div>
+  </div>
+</section>
+
+<section id="welcome">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">03 / THE ULTIMATE WELCOME</div>
+      <h2>HERE'S WHAT<br>YOU CAN DISCOVER.</h2>
+      <p>A few reasons why Bukhara deserves a place on your travel map.</p>
+    </div>
+
+    <div class="welcome-grid">
+      <article class="welcome-item reveal">
+        <div class="welcome-icon">🏛️</div>
+        <div>
+          <h3>Explore the Old City</h3>
+          <p>Walk through historic streets and discover the legendary Poi Kalyan complex.</p>
+        </div>
+      </article>
+
+      <article class="welcome-item reveal">
+        <div class="welcome-icon">🍽️</div>
+        <div>
+          <h3>Taste Uzbek Cuisine</h3>
+          <p>Try traditional plov, fresh non bread, samsa and other local favorites.</p>
+        </div>
+      </article>
+
+      <article class="welcome-item reveal">
+        <div class="welcome-icon">🤝</div>
+        <div>
+          <h3>Meet the People</h3>
+          <p>Discover the friendliness, generosity and everyday life of the local community.</p>
+        </div>
+      </article>
+
+      <article class="welcome-item reveal">
+        <div class="welcome-icon">🌍</div>
+        <div>
+          <h3>Share Our Culture</h3>
+          <p>Show your audience a different side of the world and the beauty of Central Asia.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="interactive reveal">
+      <div class="kicker">04 / THE COMMUNITY</div>
+      <h2>BUKHARA SAYS<br>WELCOME, MRBEAST!</h2>
+      <p>
+        Leave a little digital welcome for Jimmy.
+        One click, one message, one big hello from Uzbekistan.
+      </p>
+
+      <button class="btn btn-primary" id="welcomeBtn">
+        🇺🇿 SEND A WELCOME
+      </button>
+
+      <div class="counter">
+        Welcomes sent on this page: <strong id="count">0</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">05 / A GLIMPSE OF UZBEKISTAN</div>
+      <h2>BEAUTY THAT<br>SPEAKS FOR ITSELF.</h2>
+      <p>Every journey begins with a single look. Here's a little inspiration for your next adventure.</p>
+    </div>
+
+    <div class="gallery reveal">
+      <div class="gallery-item">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1100&q=85"
+          alt="Historic architecture of Central Asia">
+        <span>TIMELESS ARCHITECTURE</span>
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80"
+          alt="Old city atmosphere">
+        <span>OLD CITY STORIES</span>
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80"
+          alt="Beautiful sky">
+        <span>UNDER THE STARS</span>
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+          alt="Restaurant and hospitality">
+        <span>LOCAL FLAVORS</span>
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80"
+          alt="A beautiful travel destination">
+        <span>NEW ADVENTURES</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="final-cta reveal">
+      <div class="kicker">ONE CITY. ONE BIG HELLO.</div>
+      <h2>HEY JIMMY,<br>COME DISCOVER BUKHARA.</h2>
+      <p>
+        A little fan-made project from Uzbekistan.<br>
+        A big welcome to a creator who inspires millions.
+      </p>
+      <a class="btn btn-primary"
+        href="https://www.youtube.com/@MrBeast"
+        target="_blank" rel="noopener noreferrer">
+        VISIT MRBEAST'S YOUTUBE ↗
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <a href="#home" class="logo">MRBEAST <span>× BUKHARA</span></a>
+      <p style="margin-top:10px">MADE WITH ❤️ IN UZBEKISTAN</p>
+      <p>Independent fan-made project. Not affiliated with MrBeast.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#home">HOME ↑</a>
+      <a href="https://www.youtube.com/@MrBeast"
+        target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite">
+  🇺🇿 BUKHARA SAYS WELCOME, MRBEAST!
+</div>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(open));
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+// Reveal animations
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(el => observer.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add("visible"));
+}
+
+// Welcome interaction
+let welcomeCount = 0;
+const welcomeBtn = document.getElementById("welcomeBtn");
+const countDisplay = document.getElementById("count");
+const toast = document.getElementById("toast");
+let toastTimer;
+
+function showToast() {
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+}
+
+function confetti() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const colors = ["#36f0ed", "#32aaff", "#ffffff", "#8d7dff", "#ffdc64"];
+
+  for (let i = 0; i < 65; i++) {
+    const piece = document.createElement("div");
+    piece.className = "particle";
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDelay = Math.random() * 0.7 + "s";
+    piece.style.animationDuration = (1.5 + Math.random() * 1.5) + "s";
+    document.body.appendChild(piece);
+    piece.addEventListener("animationend", () => piece.remove());
+  }
+}
+
+welcomeBtn.addEventListener("click", () => {
+  welcomeCount++;
+  countDisplay.textContent = welcomeCount;
+  showToast();
+  confetti();
+});
+
+// Friendly console message
+console.log(
+  "%c MRBEAST × BUKHARA 🇺🇿 ",
+  "background:#36f0ed;color:#08090d;font-size:20px;font-weight:900;padding:12px;"
+);
+console.log("Built with love for Bukhara, Uzbekistan.");
+</script>
+
+</body>
+</html>
